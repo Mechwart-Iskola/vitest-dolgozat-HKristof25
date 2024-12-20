@@ -1,5 +1,5 @@
 import { it,describe,expect } from "vitest";
-import { factorial,findLongestWord,countVowels,compareObjects,isSubset,findCommonObjects } from "./functions";
+import { factorial,findLongestWord,countVowels,isSubset,findCommonObjects } from "./functions";
 
 describe("factorioal", ()=>{
     it("Pozitív egész számok:", ()=>{
@@ -10,12 +10,12 @@ describe("factorioal", ()=>{
         expect(factorial(0)).toEqual(1)
     })
     it("Negatív számok:", ()=>{
-        expect(factorial(-3)).toThrowError("Error: Factorial is not defined for negative numbers")
+        expect(factorial(-3)).toThrowError("Factorial is not defined for negative numbers")
     })
 })
 describe("find longest word", ()=>{
     it("Normál mondat:", ()=>{
-        expect(findLongestWord("The quick brown fox jumps over the lazy dog")).toEqual("jumps")
+        expect(findLongestWord("The quic brow fox jumps over the lazy dog")).toEqual("jumps")
     })
     it("Egy szavas mondat:", ()=>{
         expect(findLongestWord("Hello")).toEqual("Hello")
@@ -72,17 +72,17 @@ describe("FindCommon object arrays", ()=>{
     it("Nincsenek közös objektumok", ()=>{
         const arr1 = [{ id: 1, name: 'Alice' }]
         const arr2 = [{ id: 3, name: 'Charlie' }]
-        expect(findCommonObjects(arr1,arr2)).toEqual([{}])
+        expect(findCommonObjects(arr1,arr2)).toEqual([])
     })
-    it("3.	Üres tömbök:", ()=>{
+    it("Üres tömbök:", ()=>{
         const arr1 = [{}]
         const arr2 = [{}]
         expect(findCommonObjects(arr1,arr2)).toEqual([{}])
     })
-    it(" ", ()=>{
+    it("Egyik tömb üres", ()=>{
         const arr1 = [{ id: 1, name: 'Alice' }]
         const arr2 = [{}]
-        expect(findCommonObjects(arr1,arr2)).toEqual([{}])
+        expect(findCommonObjects(arr1,arr2)).toEqual([])
     })
     
 })
